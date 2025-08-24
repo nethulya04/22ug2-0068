@@ -98,3 +98,4 @@ Stopping app ...
 # Delete all application resources
 $ ./remove-app.sh
 Removed app.
+
