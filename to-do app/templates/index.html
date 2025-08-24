@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        ul { list-style: none; padding: 0; }
+        li { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ccc; }
+        a { color: red; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>My To-Do List</h1>
+    <form action="{{ url_for('add_todo') }}" method="POST">
+        <input type="text" name="todoitem" placeholder="Enter a new task" size="40">
+        <button type="submit">Add Task</button>
+    </form>
+    <hr>
+    <ul>
+        {% for todo in todos %}
+            <li>
+                <span>{{ todo.text }}</span>
+                <a href="{{ url_for('delete_todo', id=todo._id) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
