@@ -1,4 +1,6 @@
-🐳 Dockerized To-Do List Application
+**Nethulya Sooriarachchi | 22UG2-0068**
+______________________________________________________________________________________________________________________________________
+🐳**Dockerized To-Do List Application**
 A simple, multi-container web application that allows users to manage a to-do list. This project uses Python/Flask for the web front-end and MongoDB for the database, with the entire environment managed by Docker and Docker Compose.
 
 🚀 Deployment Requirements
@@ -99,3 +101,4 @@ Stopping app ...
 # Delete all application resources
 $ ./remove-app.sh
 Removed app.
+
