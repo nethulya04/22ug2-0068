@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # The Python Flask Web App Service
+  todo-app:
+    build: ./todo-app
+    ports:
+      - [cite_start]"8000:8000"  # Exposes the service on port 8000 [cite: 6]
+    environment:
+      - [cite_start]MONGO_HOST=mongo-db  # Configures the app to find the database [cite: 11]
+    networks:
+      - todo-network
+    depends_on:
+      - mongo-db
+    [cite_start]restart: on-failure  # Ensures the container restarts if it fails [cite: 21]
+
+  # The MongoDB Database Service
+  mongo-db:
+    [cite_start]image: "mongo:latest" # Uses an existing image from Docker Hub [cite: 10]
+    networks:
+      - todo-network
+    volumes:
+      - [cite_start]mongo-data:/data/db # Mounts the persistent volume to store data [cite: 9]
+
+networks:
+  todo-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
